@@ -103,6 +103,7 @@ func run(channel *amqp.Channel) {
 	}
 
 	wg.Wait()
+	log.Println("Process Done. To Exit Please Press CTRL+C.")
 }
 
 func main() {
@@ -113,7 +114,6 @@ func main() {
 	defer broker.CloseConnection(connection, channel)
 	go run(channel)
 
-	log.Println("Process Done. To Exit Please Press CTRL+C.")
 	<-exitChan
 
 	fmt.Println("")
