@@ -34,8 +34,10 @@ run-routing-receive-example-info-warning-error:
 	go run routing/receive_direct/main.go info warning error
 run-rpc-server:
 	go run rpc/server/main.go
-run-rpc-client:
-	go run rpc/client/main.go
+run-rpc-client: # usage -> make run-rpc-client args="'())('"
+	go run rpc/client/main.go $(args)
+run-rpc-client-example:
+	go run rpc/client/main.go "())("
 run-topics-receive: # usage -> make run-topics-receive args="lazy.#"
 	go run topics/receive/main.go $(args)
 run-topics-emit:
